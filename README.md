@@ -24,13 +24,7 @@ Lab-SoftwareArchitecture-IUH là dự án học tập nhằm mục đích nghiê
 - **Docker & Kubernetes:** Triển khai và quản lý hệ thống phần mềm.
 - **PostgreSQL / MySQL:** Quản lý cơ sở dữ liệu.
 - **Node.js:** Hỗ trợ backend với mô hình kiến trúc API-first.
-
-## Tài liệu tham khảo
-- *Clean Architecture* - Robert C. Martin
-- *Design Patterns: Elements of Reusable Object-Oriented Software* - Gang of Four (GoF)
-- *Software Architecture in Practice* - Len Bass, Paul Clements, Rick Kazman
-- *Microservices Patterns* - Chris Richardson
-
+- 
 ### Official Documentation
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
