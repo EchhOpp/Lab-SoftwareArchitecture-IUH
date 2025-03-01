@@ -4,7 +4,7 @@
 Lab-SoftwareArchitecture-IUH là dự án học tập nhằm mục đích nghiên cứu và thực hành các nguyên tắc, mô hình và phương pháp thiết kế kiến trúc phần mềm. Dự án giúp sinh viên hiểu rõ về kiến trúc phần mềm, các mẫu thiết kế (design patterns) và cách áp dụng chúng vào thực tế để xây dựng phần mềm có khả năng mở rộng, bảo trì và hiệu suất cao.
 
 ## Thông tin liên hệ
-- **Giảng viên hướng dẫn:** Nguyễn Văn Thắng, Nguyễn Trọng Tiến  
+- **Giảng viên hướng dẫn:** Mr.Nguyễn Văn Thắng, Ms.Hà Thị Kim Thoa
 - **Sinh viên thực hiện:**  
   - **Họ và tên:** Nguyễn Thành Luân  
   - **Mã số sinh viên:** 21123021  
