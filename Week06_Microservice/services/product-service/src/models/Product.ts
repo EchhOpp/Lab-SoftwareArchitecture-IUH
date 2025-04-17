@@ -1,55 +1,41 @@
-import { Schema, model, Document } from "mongoose";
+import mongoose, { Document, Schema } from 'mongoose';
 
-interface ICustomer extends Document {
-  customerId: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  address: String;
+export interface IProduct extends Document {
+  name: string;
+  price: number;
+  description: string;
+  stock: number;
   createdAt: Date;
   updatedAt: Date;
 }
 
-// chuyen thanh tieng viet
-const customerSchema = new Schema(
-  {
-    customerId: { type: String },
-    firstName: {
-      type: String,
-      required: [true, "First name is required"],
-      trim: true,
-    },
-    lastName: {
-      type: String,
-      required: [true, "Last name is required"],
-      trim: true,
-    },
-    email: {
-      type: String,
-      required: [true, "Email address is required"],
-    },
-    phone: {
-      type: String,
-      required: [true, "Phone number is required"],
-      trim: true,
-    },
-    address:  {
+const ProductSchema: Schema = new Schema({
+    name: {
         type: String,
-        required: [true, "Address is required"],
+        required: true,
         trim: true,
+        minlength: [1, 'Tên sản phẩm không được để trống'],
+        maxlength: [100, 'Tên sản phẩm không được vượt quá 100 ký tự']
+    },
+    price: {
+        type: Number,
+        required: true,
+        min: [0, 'Giá sản phẩm phải lớn hơn hoặc bằng 0']
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: [1, 'Mô tả sản phẩm không được để trống'],
+        maxlength: [500, 'Mô tả sản phẩm không được vượt quá 500 ký tự']
+    },
+    stock: {
+        type: Number,
+        required: true,
+        min: [0, 'Số lượng sản phẩm phải lớn hơn hoặc bằng 0']
     }
-  },
-  { timestamps: true }
-);
-
-customerSchema.pre<ICustomer>("save", function (next) {
-  if (this.isNew || this.customerId === undefined) {
-    this.customerId = this._id + "";
-  }
-  next();
+}, {
+  timestamps: true
 });
 
-const CustomerModel = model<ICustomer>("Customer", customerSchema);
-
-export { ICustomer, CustomerModel };
+export default mongoose.model<IProduct>('Product', ProductSchema);

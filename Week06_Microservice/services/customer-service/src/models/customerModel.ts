@@ -4,9 +4,7 @@ interface ICustomer extends Document {
   customerId: string;
   firstName: string;
   lastName: string;
-  email: string;
   phone: string;
-  address: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -24,21 +22,11 @@ const customerSchema = new Schema(
       required: [true, "Họ không được để trống"],
       trim: true,
     },
-    email: {
-      type: String,
-      required: [true, "Email không được để trống"],
-      unique: true,
-    },
     phone: {
       type: String,
       required: [true, "Số điện thoại không được để trống"],
       trim: true,
     },
-    address: {
-      type: String,
-      required: [true, "Địa chỉ không được để trống"],
-      trim: true,
-    }
   },
   { timestamps: true }
 );
