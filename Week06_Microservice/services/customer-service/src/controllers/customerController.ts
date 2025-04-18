@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { CustomerModel, ICustomer } from "../models/customerModel";
 import { getCustomerOrders } from "../service/connectServiceOrder";
+import { publishCustomerCreated, publishCustomerUpdated } from "../events/publishers";
 
 // Lấy tất cả khách hàng
 export const getAllCustomers = async (req: Request, res: Response): Promise<void> => {
@@ -91,6 +92,9 @@ export const createCustomer = async (req: Request, res: Response): Promise<void>
     const newCustomer = new CustomerModel(req.body);
     const savedCustomer = await newCustomer.save();
     
+    // Publish sự kiện khách hàng mới được tạo
+    await publishCustomerCreated(savedCustomer);
+    
     res.status(201).json({
       errorCode: 201,
       errorMessage: "Tạo khách hàng thành công",
@@ -132,6 +136,9 @@ export const updateCustomer = async (req: Request, res: Response): Promise<void>
       });
       return;
     }
+    
+    // Publish sự kiện khách hàng được cập nhật
+    await publishCustomerUpdated(updatedCustomer);
     
     res.json({
       errorCode: 200,
