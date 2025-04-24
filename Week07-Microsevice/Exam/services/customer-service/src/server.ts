@@ -18,7 +18,7 @@ app.get("/ping", (req, res) => {
 });
 
 // Customer routes
-app.use('/api', customerRoutes);
+app.use('/', customerRoutes);
 
 const PORT = process.env.PORT || 3001;
 

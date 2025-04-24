@@ -22,9 +22,9 @@ router.get('/ping', (req, res) => {
 */
 
 // Sử dụng bind để đảm bảo đúng context của this
-router.get('/customers',customerController.getAllCustomers.bind(customerController));
-router.get('/customers/:id', customerController.getCustomerById.bind(customerController));
-router.post('/customers', customerController.createCustomer.bind(customerController));
-router.get('/customers/:id/order', customerController.getOrderByCustomerId.bind(customerController));
+router.get('/',customerController.getAllCustomers.bind(customerController));
+router.get('/:id', customerController.getCustomerById.bind(customerController));
+router.post('/', customerController.createCustomer.bind(customerController));
+router.get('/:id/order', customerController.getOrderByCustomerId.bind(customerController));
 
 export default router;
