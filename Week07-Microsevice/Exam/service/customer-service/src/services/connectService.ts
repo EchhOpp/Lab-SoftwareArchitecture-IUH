@@ -36,6 +36,7 @@ const breaker = new CircuitBreaker(async (endpoint: string, method: 'GET' | 'POS
         method,
         data,
         timeout: 5000,
+          
     });
     return response.data;
 }, options);
